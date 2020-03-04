@@ -15,16 +15,14 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Downloading ${{ matrix.gcc-version }} cross compiler
-      if: matrix.gcc-version == 'arm-eabi-4.8'
-      run: git clone https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/arm/arm-eabi-4.8/
-    - if: matrix.gcc-version == 'arm-linux-androideabi-4.9'
-      run: git clone https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9
-    - if: matrix.gcc-version == 'gcc-linaro-7.5.0'
-      run: 
-          wget https://releases.linaro.org/components/toolchain/binaries/latest-7/arm-linux-gnueabihf/gcc-linaro-7.5.0-2019.12-x86_64_arm-linux-gnueabihf.tar.xz
-    - run: tar -xvf arm-linux-gnueabihf/gcc-linaro-7.5.0-2019.12-x86_64_arm-linux-gnueabihf.tar.xz
-    - run: cd arm-linux-gnueabihf/gcc-linaro-7.5.0-2019.12-x86_64_arm-linux-gnueabihf
-    - run: ls
+      if: |
+         matrix.gcc-version == 'arm-eabi-4.8' run: git clone https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/arm/arm-eabi-4.8/
+         matrix.gcc-version == 'arm-linux-androideabi-4.9' run: git clone https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9
+         matrix.gcc-version == 'gcc-linaro-7.5.0' run: |
+                                                      wget https://releases.linaro.org/components/toolchain/binaries/latest-7/arm-linux-gnueabihf/gcc-linaro-7.5.0-2019.12-x86_64_arm-linux-gnueabihf.tar.xz
+                                                      tar -xvf arm-linux-gnueabihf/gcc-linaro-7.5.0-2019.12-x86_64_arm-linux-gnueabihf.tar.xz
+                                                      cd arm-linux-gnueabihf/gcc-linaro-7.5.0-2019.12-x86_64_arm-linux-gnueabihf
+      
       
     - name: make
       run: make
