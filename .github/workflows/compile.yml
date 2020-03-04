@@ -15,7 +15,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
       
-    - run: mkdir /gcc && cd /gcc # GCC folder
+    - run: sudo mkdir /gcc && cd /gcc # GCC folder
       
     - if: matrix.gcc-version == 'arm-eabi-4.8'
       name: Download arm-eabi-4.8 cross compiler
