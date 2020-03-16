@@ -20,6 +20,7 @@ jobs:
     - if: matrix.gcc-version == 'arm-eabi-4.8'
       name: Download arm-eabi-4.8 cross compiler
       run: git clone https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/arm/arm-eabi-4.8/
+    - if: matrix.gcc-version == 'arm-eabi-4.8'
       name: Export arm-eabi-4.8 cross compiler
       run: |
           cd work/android_kernel_pantech_msm8960/android_kernel_pantech_msm8960
@@ -28,6 +29,7 @@ jobs:
     - if: matrix.gcc-version == 'arm-linux-androideabi-4.9'
       name: Download arm-linux-androideabi-4.9 cross compiler
       run: git clone https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9
+    - if: matrix.gcc-version == 'arm-linux-androideabi-4.9'
       name: Export arm-linux-androideabi-4.9 cross compiler
       run: |
           cd work/android_kernel_pantech_msm8960/android_kernel_pantech_msm8960
@@ -38,6 +40,7 @@ jobs:
       run: |
           wget https://releases.linaro.org/components/toolchain/binaries/latest-7/arm-linux-gnueabihf/gcc-linaro-7.5.0-2019.12-x86_64_arm-linux-gnueabihf.tar.xz
           tar -xvf gcc-linaro-7.5.0-2019.12-x86_64_arm-linux-gnueabihf.tar.xz ./
+    - if: matrix.gcc-version == 'arm-linux-gnueabihf'
       name: Export arm-linux-gnueabihf cross compiler
       run: |
           cd work/android_kernel_pantech_msm8960/android_kernel_pantech_msm8960
