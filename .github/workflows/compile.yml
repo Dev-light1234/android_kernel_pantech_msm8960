@@ -19,7 +19,7 @@ jobs:
       
     - if: matrix.gcc-version == 'arm-eabi-4.8'
       name: Download arm-eabi-4.8 cross compiler
-      run: git clone https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/arm/arm-eabi-4.8/
+      run: git clone https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/arm/arm-eabi-4.8/ ./
     - if: matrix.gcc-version == 'arm-eabi-4.8'
       name: Export arm-eabi-4.8 cross compiler
       run: |
@@ -28,7 +28,7 @@ jobs:
 
     - if: matrix.gcc-version == 'arm-linux-androideabi-4.9'
       name: Download arm-linux-androideabi-4.9 cross compiler
-      run: git clone https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9
+      run: git clone https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9 ./
     - if: matrix.gcc-version == 'arm-linux-androideabi-4.9'
       name: Export arm-linux-androideabi-4.9 cross compiler
       run: |
@@ -40,7 +40,7 @@ jobs:
       run: |
           wget https://releases.linaro.org/components/toolchain/binaries/latest-7/arm-linux-gnueabihf/gcc-linaro-7.5.0-2019.12-x86_64_arm-linux-gnueabihf.tar.xz
           xz -d gcc-linaro-7.5.0-2019.12-x86_64_arm-linux-gnueabihf.tar.xz
-          tar -x gcc-linaro-7.5.0-2019.12-x86_64_arm-linux-gnueabihf.tar
+          tar -xf gcc-linaro-7.5.0-2019.12-x86_64_arm-linux-gnueabihf.tar -C ./
     - if: matrix.gcc-version == 'arm-linux-gnueabihf'
       name: Export arm-linux-gnueabihf cross compiler
       run: |
